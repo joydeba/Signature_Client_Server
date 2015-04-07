@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Signature_Client_Server
 {
-    public partial class Form1 : Form
+    public partial class Analysis : Form
     {
-        public Form1()
+        public Analysis()
         {
             InitializeComponent();
         }

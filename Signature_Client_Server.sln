@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Signature_Client_Server", "Signature_Client_Server\Signature_Client_Server.csproj", "{B7AC9959-A21D-4DC2-AFAD-411CBA828D9A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alice", "Alice\Alice.csproj", "{1C4399AC-FDB6-4C4C-88F8-EDF39E545783}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextEncryption", "TextEncryption\TextEncryption.csproj", "{35AB4AAD-0E16-472E-B758-8D545162DEC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{B7AC9959-A21D-4DC2-AFAD-411CBA828D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7AC9959-A21D-4DC2-AFAD-411CBA828D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7AC9959-A21D-4DC2-AFAD-411CBA828D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C4399AC-FDB6-4C4C-88F8-EDF39E545783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C4399AC-FDB6-4C4C-88F8-EDF39E545783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C4399AC-FDB6-4C4C-88F8-EDF39E545783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C4399AC-FDB6-4C4C-88F8-EDF39E545783}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35AB4AAD-0E16-472E-B758-8D545162DEC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35AB4AAD-0E16-472E-B758-8D545162DEC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35AB4AAD-0E16-472E-B758-8D545162DEC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35AB4AAD-0E16-472E-B758-8D545162DEC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
