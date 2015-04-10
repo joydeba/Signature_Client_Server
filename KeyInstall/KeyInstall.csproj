@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{50E16778-BEEE-4D63-BFDF-7FAA221223E5}</ProjectGuid>
+    <ProjectGuid>{DDE503DD-8241-4857-9088-6880502AE57D}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AliceClient</RootNamespace>
-    <AssemblyName>AliceClient</AssemblyName>
+    <RootNamespace>KeyInstall</RootNamespace>
+    <AssemblyName>KeyInstall</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AliceClient.cs" />
+    <Compile Include="KeyInstall.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -52,9 +52,6 @@
       <Project>{ec4af814-44b8-4f13-a731-bab5c1e40b53}</Project>
       <Name>Bob</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="AliceClient.exe.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

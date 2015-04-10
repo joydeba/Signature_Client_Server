@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{50E16778-BEEE-4D63-BFDF-7FAA221223E5}</ProjectGuid>
+    <ProjectGuid>{3FAA8F19-3354-43D3-B003-42002BC022F1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AliceClient</RootNamespace>
-    <AssemblyName>AliceClient</AssemblyName>
+    <RootNamespace>FormatterDeformatter</RootNamespace>
+    <AssemblyName>FormatterDeformatter</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,21 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AliceClient.cs" />
+    <Compile Include="FormatterDeformatter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Alice\Alice.csproj">
-      <Project>{1c4399ac-fdb6-4c4c-88f8-edf39e545783}</Project>
-      <Name>Alice</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Bob\Bob.csproj">
-      <Project>{ec4af814-44b8-4f13-a731-bab5c1e40b53}</Project>
-      <Name>Bob</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="AliceClient.exe.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
