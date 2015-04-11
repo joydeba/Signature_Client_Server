@@ -15,5 +15,10 @@ namespace Signature_Client_Server
         {
             InitializeComponent();
         }
+
+        private void label_reciever_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
