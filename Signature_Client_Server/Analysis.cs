@@ -20,5 +20,33 @@ namespace Signature_Client_Server
         {
 
         }
+
+        private void button_browse_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fdlg = new OpenFileDialog();
+            fdlg.Title = "File Dialog";
+            fdlg.InitialDirectory = @"c:\";
+            fdlg.Filter = "All files (*.*)|*.*|All files (*.*)|*.*";
+            fdlg.FilterIndex = 2;
+            fdlg.RestoreDirectory = true;
+            if (fdlg.ShowDialog() == DialogResult.OK)
+            {
+                textBox_file.Text = fdlg.FileName;
+            }
+        }
+
+        private void button_send_Click(object sender, EventArgs e)
+        {
+            string file = textBox_file.Text;
+
+            if (0 == file.Length)
+            {
+                label_ins.ForeColor = System.Drawing.Color.Red;
+                HashAFile haf = new HashAFile();
+                return;
+            }
+
+
+        }
     }
 }

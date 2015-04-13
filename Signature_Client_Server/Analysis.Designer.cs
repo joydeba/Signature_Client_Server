@@ -41,6 +41,8 @@
             this.button_start = new System.Windows.Forms.Button();
             this.label_sender = new System.Windows.Forms.Label();
             this.label_reciever = new System.Windows.Forms.Label();
+            this.textBox_file = new System.Windows.Forms.TextBox();
+            this.button_browse = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -55,6 +57,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button_browse);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox_file);
             this.splitContainer1.Panel1.Controls.Add(this.label_sender);
             this.splitContainer1.Panel1.Controls.Add(this.label_sender_sign);
             this.splitContainer1.Panel1.Controls.Add(this.label_sender_encrypt);
@@ -112,6 +116,7 @@
             this.button_send.TabIndex = 0;
             this.button_send.Text = "Send";
             this.button_send.UseVisualStyleBackColor = false;
+            this.button_send.Click += new System.EventHandler(this.button_send_Click);
             // 
             // label_reciver_decrypt
             // 
@@ -185,6 +190,26 @@
             this.label_reciever.Text = "R\r\nE\r\nC\r\nI\r\nV\r\nE\r\nR\r\n";
             this.label_reciever.Click += new System.EventHandler(this.label_reciever_Click);
             // 
+            // textBox_file
+            // 
+            this.textBox_file.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.textBox_file.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_file.Location = new System.Drawing.Point(31, 45);
+            this.textBox_file.Name = "textBox_file";
+            this.textBox_file.Size = new System.Drawing.Size(265, 20);
+            this.textBox_file.TabIndex = 5;
+            // 
+            // button_browse
+            // 
+            this.button_browse.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button_browse.Location = new System.Drawing.Point(302, 45);
+            this.button_browse.Name = "button_browse";
+            this.button_browse.Size = new System.Drawing.Size(90, 23);
+            this.button_browse.TabIndex = 6;
+            this.button_browse.Text = "FileBrowser";
+            this.button_browse.UseVisualStyleBackColor = false;
+            this.button_browse.Click += new System.EventHandler(this.button_browse_Click);
+            // 
             // Analysis
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -220,6 +245,8 @@
         private System.Windows.Forms.Label label_server_status;
         private System.Windows.Forms.Label label_sender;
         private System.Windows.Forms.Label label_reciever;
+        private System.Windows.Forms.Button button_browse;
+        private System.Windows.Forms.TextBox textBox_file;
     }
 }
 
