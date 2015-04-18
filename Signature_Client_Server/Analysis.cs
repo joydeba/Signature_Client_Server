@@ -11,6 +11,8 @@ namespace Signature_Client_Server
 {
     public partial class Analysis : Form
     {
+        byte[] global_hashvalue;
+        byte[] global_sign;
         public Analysis()
         {
             InitializeComponent();
@@ -42,10 +44,65 @@ namespace Signature_Client_Server
             if (0 == file.Length)
             {
                 label_ins.ForeColor = System.Drawing.Color.Red;
-                HashAFile haf = new HashAFile();
+                return;
+            }
+            HashAFile haf = new HashAFile(file);
+            byte[] hashbytes = haf.HashFile();
+
+            if (0 == hashbytes.Length)
+            {
+                label_ins.Text = "Failed to hash the file" + file;
                 return;
             }
 
+
+            string temp = "";
+            foreach (byte hashbyte in hashbytes)
+            {
+
+                temp = temp + " " + hashbyte;
+            }
+            richTextBox_hash_value.Text = "Hash/Message Digest :" + temp;
+            global_hashvalue = hashbytes;
+
+            if (false == haf.CreateHashFile(file+"1"))
+            {
+                label_ins.Text = "Failed to create the hash file ";
+                return;
+            }
+            
+
+        }
+
+        private void button_send_sign_Click(object sender, EventArgs e)
+        {
+            Signature sign = new Signature("SHA1");
+            byte[] signature = sign.Sign(global_hashvalue);
+
+            string temp = "";
+            foreach (byte hashbyte in signature)
+            {
+
+                temp = temp + " " + hashbyte;
+            }
+            richTextBox_hash_value.Text = "Signature/Message Digest :" + temp;
+            global_sign = signature;
+
+        }
+
+        private void button_start_Click(object sender, EventArgs e)
+        {
+            string file = textBox_file.Text;
+            Signature verify = new Signature("SHA1");
+            byte[] signature = global_sign;
+            bool valid_or_not = verify.Validate(file, signature);
+
+            if (valid_or_not)
+            {
+                label_reciever_rcv.Text = label_reciever_rcv.Text + " OK";
+                label_reciever_verify.Text = label_reciever_verify.Text + " OK";
+            }   
+                
 
         }
     }
