@@ -232,7 +232,7 @@ namespace FileHash
             {
                 Console.Out.Write("{0:x}", hashbyte);
             }
-
+            //---------------------------------------------------
             System.Console.Out.Write("\nEnter the File Path to store hash:");
             file = System.Console.In.ReadLine();
             if (0 == file.Length)

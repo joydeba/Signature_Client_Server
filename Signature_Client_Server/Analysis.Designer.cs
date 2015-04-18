@@ -29,20 +29,22 @@
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button_send_sign = new System.Windows.Forms.Button();
+            this.richTextBox_hash_value = new System.Windows.Forms.RichTextBox();
+            this.button_browse = new System.Windows.Forms.Button();
+            this.textBox_file = new System.Windows.Forms.TextBox();
+            this.label_sender = new System.Windows.Forms.Label();
             this.label_sender_sign = new System.Windows.Forms.Label();
             this.label_sender_encrypt = new System.Windows.Forms.Label();
             this.label_ins = new System.Windows.Forms.Label();
-            this.button_send = new System.Windows.Forms.Button();
+            this.button_send_hash = new System.Windows.Forms.Button();
+            this.label_reciever = new System.Windows.Forms.Label();
             this.label_reciver_decrypt = new System.Windows.Forms.Label();
             this.label_reciever_verify = new System.Windows.Forms.Label();
             this.label_reciever_rcv = new System.Windows.Forms.Label();
             this.label_server_status = new System.Windows.Forms.Label();
             this.progressBar_reciever = new System.Windows.Forms.ProgressBar();
             this.button_start = new System.Windows.Forms.Button();
-            this.label_sender = new System.Windows.Forms.Label();
-            this.label_reciever = new System.Windows.Forms.Label();
-            this.textBox_file = new System.Windows.Forms.TextBox();
-            this.button_browse = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -57,13 +59,15 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button_send_sign);
+            this.splitContainer1.Panel1.Controls.Add(this.richTextBox_hash_value);
             this.splitContainer1.Panel1.Controls.Add(this.button_browse);
             this.splitContainer1.Panel1.Controls.Add(this.textBox_file);
             this.splitContainer1.Panel1.Controls.Add(this.label_sender);
             this.splitContainer1.Panel1.Controls.Add(this.label_sender_sign);
             this.splitContainer1.Panel1.Controls.Add(this.label_sender_encrypt);
             this.splitContainer1.Panel1.Controls.Add(this.label_ins);
-            this.splitContainer1.Panel1.Controls.Add(this.button_send);
+            this.splitContainer1.Panel1.Controls.Add(this.button_send_hash);
             this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
             // splitContainer1.Panel2
@@ -76,9 +80,59 @@
             this.splitContainer1.Panel2.Controls.Add(this.progressBar_reciever);
             this.splitContainer1.Panel2.Controls.Add(this.button_start);
             this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.splitContainer1.Size = new System.Drawing.Size(819, 249);
+            this.splitContainer1.Size = new System.Drawing.Size(819, 456);
             this.splitContainer1.SplitterDistance = 409;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // button_send_sign
+            // 
+            this.button_send_sign.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button_send_sign.Location = new System.Drawing.Point(235, 197);
+            this.button_send_sign.Name = "button_send_sign";
+            this.button_send_sign.Size = new System.Drawing.Size(75, 23);
+            this.button_send_sign.TabIndex = 8;
+            this.button_send_sign.Text = "Sign";
+            this.button_send_sign.UseVisualStyleBackColor = false;
+            this.button_send_sign.Click += new System.EventHandler(this.button_send_sign_Click);
+            // 
+            // richTextBox_hash_value
+            // 
+            this.richTextBox_hash_value.BackColor = System.Drawing.Color.LightSalmon;
+            this.richTextBox_hash_value.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.richTextBox_hash_value.Location = new System.Drawing.Point(31, 263);
+            this.richTextBox_hash_value.Name = "richTextBox_hash_value";
+            this.richTextBox_hash_value.Size = new System.Drawing.Size(346, 161);
+            this.richTextBox_hash_value.TabIndex = 7;
+            this.richTextBox_hash_value.Text = "";
+            // 
+            // button_browse
+            // 
+            this.button_browse.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button_browse.Location = new System.Drawing.Point(302, 45);
+            this.button_browse.Name = "button_browse";
+            this.button_browse.Size = new System.Drawing.Size(90, 23);
+            this.button_browse.TabIndex = 6;
+            this.button_browse.Text = "FileBrowser";
+            this.button_browse.UseVisualStyleBackColor = false;
+            this.button_browse.Click += new System.EventHandler(this.button_browse_Click);
+            // 
+            // textBox_file
+            // 
+            this.textBox_file.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.textBox_file.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_file.Location = new System.Drawing.Point(31, 45);
+            this.textBox_file.Name = "textBox_file";
+            this.textBox_file.Size = new System.Drawing.Size(265, 20);
+            this.textBox_file.TabIndex = 5;
+            // 
+            // label_sender
+            // 
+            this.label_sender.AutoSize = true;
+            this.label_sender.Location = new System.Drawing.Point(6, 165);
+            this.label_sender.Name = "label_sender";
+            this.label_sender.Size = new System.Drawing.Size(16, 78);
+            this.label_sender.TabIndex = 4;
+            this.label_sender.Text = "S\r\nE\r\nN\r\nD\r\nE\r\nR\r\n";
             // 
             // label_sender_sign
             // 
@@ -107,16 +161,26 @@
             this.label_ins.TabIndex = 1;
             this.label_ins.Text = "Select a file to encrypt and sign.";
             // 
-            // button_send
+            // button_send_hash
             // 
-            this.button_send.BackColor = System.Drawing.Color.LavenderBlush;
-            this.button_send.Location = new System.Drawing.Point(302, 197);
-            this.button_send.Name = "button_send";
-            this.button_send.Size = new System.Drawing.Size(75, 23);
-            this.button_send.TabIndex = 0;
-            this.button_send.Text = "Send";
-            this.button_send.UseVisualStyleBackColor = false;
-            this.button_send.Click += new System.EventHandler(this.button_send_Click);
+            this.button_send_hash.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button_send_hash.Location = new System.Drawing.Point(154, 197);
+            this.button_send_hash.Name = "button_send_hash";
+            this.button_send_hash.Size = new System.Drawing.Size(75, 23);
+            this.button_send_hash.TabIndex = 0;
+            this.button_send_hash.Text = "Hash";
+            this.button_send_hash.UseVisualStyleBackColor = false;
+            this.button_send_hash.Click += new System.EventHandler(this.button_send_Click);
+            // 
+            // label_reciever
+            // 
+            this.label_reciever.AutoSize = true;
+            this.label_reciever.Location = new System.Drawing.Point(364, 67);
+            this.label_reciever.Name = "label_reciever";
+            this.label_reciever.Size = new System.Drawing.Size(16, 91);
+            this.label_reciever.TabIndex = 9;
+            this.label_reciever.Text = "R\r\nE\r\nC\r\nI\r\nV\r\nE\r\nR\r\n";
+            this.label_reciever.Click += new System.EventHandler(this.label_reciever_Click);
             // 
             // label_reciver_decrypt
             // 
@@ -170,52 +234,14 @@
             this.button_start.TabIndex = 0;
             this.button_start.Text = "Start";
             this.button_start.UseVisualStyleBackColor = false;
-            // 
-            // label_sender
-            // 
-            this.label_sender.AutoSize = true;
-            this.label_sender.Location = new System.Drawing.Point(6, 165);
-            this.label_sender.Name = "label_sender";
-            this.label_sender.Size = new System.Drawing.Size(16, 78);
-            this.label_sender.TabIndex = 4;
-            this.label_sender.Text = "S\r\nE\r\nN\r\nD\r\nE\r\nR\r\n";
-            // 
-            // label_reciever
-            // 
-            this.label_reciever.AutoSize = true;
-            this.label_reciever.Location = new System.Drawing.Point(364, 67);
-            this.label_reciever.Name = "label_reciever";
-            this.label_reciever.Size = new System.Drawing.Size(16, 91);
-            this.label_reciever.TabIndex = 9;
-            this.label_reciever.Text = "R\r\nE\r\nC\r\nI\r\nV\r\nE\r\nR\r\n";
-            this.label_reciever.Click += new System.EventHandler(this.label_reciever_Click);
-            // 
-            // textBox_file
-            // 
-            this.textBox_file.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.textBox_file.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_file.Location = new System.Drawing.Point(31, 45);
-            this.textBox_file.Name = "textBox_file";
-            this.textBox_file.Size = new System.Drawing.Size(265, 20);
-            this.textBox_file.TabIndex = 5;
-            // 
-            // button_browse
-            // 
-            this.button_browse.BackColor = System.Drawing.Color.LavenderBlush;
-            this.button_browse.Location = new System.Drawing.Point(302, 45);
-            this.button_browse.Name = "button_browse";
-            this.button_browse.Size = new System.Drawing.Size(90, 23);
-            this.button_browse.TabIndex = 6;
-            this.button_browse.Text = "FileBrowser";
-            this.button_browse.UseVisualStyleBackColor = false;
-            this.button_browse.Click += new System.EventHandler(this.button_browse_Click);
+            this.button_start.Click += new System.EventHandler(this.button_start_Click);
             // 
             // Analysis
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(819, 249);
+            this.ClientSize = new System.Drawing.Size(819, 456);
             this.Controls.Add(this.splitContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Analysis";
@@ -233,7 +259,7 @@
         #endregion
 
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.Button button_send;
+        private System.Windows.Forms.Button button_send_hash;
         private System.Windows.Forms.Button button_start;
         private System.Windows.Forms.Label label_sender_sign;
         private System.Windows.Forms.Label label_sender_encrypt;
@@ -247,6 +273,8 @@
         private System.Windows.Forms.Label label_reciever;
         private System.Windows.Forms.Button button_browse;
         private System.Windows.Forms.TextBox textBox_file;
+        private System.Windows.Forms.RichTextBox richTextBox_hash_value;
+        private System.Windows.Forms.Button button_send_sign;
     }
 }
 
