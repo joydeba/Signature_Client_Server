@@ -42,7 +42,7 @@ namespace Signature_Client_Server
             if (0 == file.Length)
             {
                 label_ins.ForeColor = System.Drawing.Color.Red;
-                HashAFile haf = new HashAFile();
+                HashAFile haf = new HashAFile(file);
                 return;
             }
 
