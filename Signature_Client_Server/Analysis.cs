@@ -137,7 +137,8 @@ namespace Signature_Client_Server
             csp.ProviderName = "Microsoft Enhanced Cryptographic Provider v1.0";
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(csp);
             Receiver receiver_r = new Receiver();
-           // receiver_r.SetReceiverKeyPair(rsa.ExportParameters(true));
+            string both_key = receiver_r.SetReceiverKeyPair(rsa.ExportParameters(true));
+            richTextBox_hash_value.Text = "Imported RSA Public Key: \n" + both_key;
 
         }
     }

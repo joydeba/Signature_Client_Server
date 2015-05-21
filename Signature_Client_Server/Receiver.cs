@@ -19,12 +19,12 @@ namespace Signature_Client_Server
             return csp;
         }
 
-        public void SetBobKeyPair(RSAParameters xmlprivate)
+        public string SetReceiverKeyPair(RSAParameters xmlprivate)
         {
             RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(GetCryptoServiceProvider());
             rsa.ImportParameters(xmlprivate);
             rsa.PersistKeyInCsp = true;
-
+            return rsa.ToXmlString(true);
         //    System.Console.Out.WriteLine("Imported RSA Key Pair	\n {0}", rsa.ToXmlString(true));
         }
 
