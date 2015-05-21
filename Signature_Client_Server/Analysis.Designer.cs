@@ -45,6 +45,8 @@
             this.label_server_status = new System.Windows.Forms.Label();
             this.progressBar_reciever = new System.Windows.Forms.ProgressBar();
             this.button_start = new System.Windows.Forms.Button();
+            this.button_sender_key_gen = new System.Windows.Forms.Button();
+            this.button_reciever_key_gen = new System.Windows.Forms.Button();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -59,6 +61,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.button_sender_key_gen);
             this.splitContainer1.Panel1.Controls.Add(this.button_send_sign);
             this.splitContainer1.Panel1.Controls.Add(this.richTextBox_hash_value);
             this.splitContainer1.Panel1.Controls.Add(this.button_browse);
@@ -72,6 +75,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.button_reciever_key_gen);
             this.splitContainer1.Panel2.Controls.Add(this.label_reciever);
             this.splitContainer1.Panel2.Controls.Add(this.label_reciver_decrypt);
             this.splitContainer1.Panel2.Controls.Add(this.label_reciever_verify);
@@ -236,6 +240,28 @@
             this.button_start.UseVisualStyleBackColor = false;
             this.button_start.Click += new System.EventHandler(this.button_start_Click);
             // 
+            // button_sender_key_gen
+            // 
+            this.button_sender_key_gen.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button_sender_key_gen.Location = new System.Drawing.Point(31, 12);
+            this.button_sender_key_gen.Name = "button_sender_key_gen";
+            this.button_sender_key_gen.Size = new System.Drawing.Size(189, 23);
+            this.button_sender_key_gen.TabIndex = 9;
+            this.button_sender_key_gen.Text = "Key Gen and Send";
+            this.button_sender_key_gen.UseVisualStyleBackColor = false;
+            this.button_sender_key_gen.Click += new System.EventHandler(this.button_sender_key_gen_Click);
+            // 
+            // button_reciever_key_gen
+            // 
+            this.button_reciever_key_gen.BackColor = System.Drawing.Color.LavenderBlush;
+            this.button_reciever_key_gen.Location = new System.Drawing.Point(12, 12);
+            this.button_reciever_key_gen.Name = "button_reciever_key_gen";
+            this.button_reciever_key_gen.Size = new System.Drawing.Size(201, 23);
+            this.button_reciever_key_gen.TabIndex = 10;
+            this.button_reciever_key_gen.Text = "Key Gen and Send";
+            this.button_reciever_key_gen.UseVisualStyleBackColor = false;
+            this.button_reciever_key_gen.Click += new System.EventHandler(this.button_reciever_key_gen_Click);
+            // 
             // Analysis
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
@@ -275,6 +301,8 @@
         private System.Windows.Forms.TextBox textBox_file;
         private System.Windows.Forms.RichTextBox richTextBox_hash_value;
         private System.Windows.Forms.Button button_send_sign;
+        private System.Windows.Forms.Button button_sender_key_gen;
+        private System.Windows.Forms.Button button_reciever_key_gen;
     }
 }
 

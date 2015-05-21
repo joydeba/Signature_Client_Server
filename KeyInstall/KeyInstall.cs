@@ -45,6 +45,7 @@ namespace KeyInstall
             {
                 Alice.Alice alice = new Alice.Alice();
                 alice.SetBobPublicKey(rsa.ExportParameters(false));
+                
             }
             else if (option == 'b')
             {
@@ -53,6 +54,8 @@ namespace KeyInstall
             }
             else
                 System.Console.Out.WriteLine("Incorrect option. Bye");
+
+            
         }
     }
 }

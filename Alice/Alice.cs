@@ -50,8 +50,11 @@ namespace Alice
 
             //let us save the keys for future use.
             rsa.PersistKeyInCsp = true;
+            int start = System.Console.In.Read();
 
             System.Console.Out.WriteLine("Imported RSA Public Key \n {0}", rsa.ToXmlString(false));
+           
+            int end = System.Console.In.Read();
         }
 
         //This function will be called at the begining of the communication (First Part)
