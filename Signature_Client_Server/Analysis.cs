@@ -14,6 +14,7 @@ namespace Signature_Client_Server
     {
         byte[] global_hashvalue;
         byte[] global_sign;
+      
         public Analysis()
         {
             InitializeComponent();
@@ -115,13 +116,10 @@ namespace Signature_Client_Server
         {
             string xmlRSAKeyPair = "<RSAKeyValue><Modulus>22BoUo2P28KglLh8G5gyOPXHFYDjF3i+KTNoE3wiSj+egBzM44Y+Ap4eeNQaBPrSp7PmGrLQp6sjBF1817llvCqTnk18V+EdMsJ5hUT5SzEFwCcPqSDH9Ns1wM/hP541RCTe+E53mAnovVKPoS4en+SnCnp2Lxnne01B4an8PM0=</Modulus><Exponent>AQAB</Exponent><P>8jIknnZvylSfuJE/XIiWVAPmD1z6T7cu53rBGVyXmIVfmqqC20f6IISERd1cvhrOLc+5IIUYt5uPXW1LHkYjTw==</P><Q>5+FPfr2qHrdZprpL7qaJUTw3N5JnBYzG+lNC/ZEk7qVWddVCQjaKfE8D7M8sYeT5o+WnoW+CHh83daBRrx3HIw==</Q><DP>yPBLK2Ft7Dr7bOCs5fO4bSny5Ioqbpq3gnt427bTW0pEgIi5Gn8ECZiIOYKnoF2S87UkjdN/J04bytKTgSGFxw==</DP><DQ>0XK9+JBfIuGgtC4guk9pR5xpj+PI9MVlUeV1ZE7/miR0RXk9IUvcqU5CEFxODZrjN30QfoyXbpfp43DNd60hGw==</DQ><InverseQ>eZ0h/wsZEhwUcprax89t3VEZfuACP2R8IGmvlOPQ89clxAR/twbF4aSPwoEiFJ8v0fgoceRQ8BP7S3CowhcWFw==</InverseQ><D>AKtiph3Yeos1gj6t4kesn4/gc6hZCRFNQ0Ls5mJSmHdpPGraFTerqMZiwWukSK+bRPe/lAVHrbtP+Atw/heKv+7O9VIAZnADXXF4CnNAsrFSgRS+BHoShQytzF2kIJpJZfWZ9MYJfI2wquDWCJTCc1ZbdnEhtBohKMvWrP8fV+E=</D></RSAKeyValue>";
             Sender sender_s = new Sender();
-            CspParameters csp = new CspParameters();
-            csp.ProviderType = 1;
-            csp.ProviderName = "Microsoft Enhanced Cryptographic Provider v1.0";
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(csp);
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(Signature.GetCryptoServiceProvider());
             rsa.FromXmlString(xmlRSAKeyPair);
-            string p_key = sender_s.SetReceiverPublicKey(rsa.ExportParameters(false));
-            richTextBox_hash_value.Text = "Imported RSA Public Key: \n" + p_key;
+            string both_key = sender_s.SetSenderKeyPair(rsa.ExportParameters(true));
+            richTextBox_hash_value.Text = "Imported RSA Public Key: \n" + both_key;
             
         }
 
@@ -132,13 +130,11 @@ namespace Signature_Client_Server
 
         private void button_reciever_key_gen_Click(object sender, EventArgs e)
         {
-            CspParameters csp = new CspParameters();
-            csp.ProviderType = 1;
-            csp.ProviderName = "Microsoft Enhanced Cryptographic Provider v1.0";
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(csp);
+
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(Signature.GetCryptoServiceProvider());
             Receiver receiver_r = new Receiver();
-            string both_key = receiver_r.SetReceiverKeyPair(rsa.ExportParameters(true));
-            richTextBox_hash_value.Text = "Imported RSA Public Key: \n" + both_key;
+            string p_key = receiver_r.SetSenderPublicKey(rsa.ExportParameters(false));
+            richTextBox_hash_value.Text = "Imported RSA Public Key: \n" + p_key;
 
         }
     }

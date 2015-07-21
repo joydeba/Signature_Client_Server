@@ -9,24 +9,16 @@ namespace Signature_Client_Server
 {
     class Receiver
     {
-        private CspParameters GetCryptoServiceProvider()
+
+        public string SetSenderPublicKey(RSAParameters xmlpublic)
         {
-            CspParameters csp = new CspParameters();
-            csp.KeyContainerName = "Receiver's Keys";
-            csp.ProviderType = 1;
-            csp.Flags = CspProviderFlags.UseDefaultKeyContainer;
-            csp.ProviderName = "Microsoft Enhanced Cryptographic Provider v1.0";
-            return csp;
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(Signature.GetCryptoServiceProvider());
+            rsa.ImportParameters(xmlpublic);
+            rsa.PersistKeyInCsp = true;
+            return rsa.ToXmlString(false);
+            //   System.Console.Out.WriteLine("Imported RSA Public Key \n {0}", rsa.ToXmlString(false));
         }
 
-        public string SetReceiverKeyPair(RSAParameters xmlprivate)
-        {
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(GetCryptoServiceProvider());
-            rsa.ImportParameters(xmlprivate);
-            rsa.PersistKeyInCsp = true;
-            return rsa.ToXmlString(true);
-        //    System.Console.Out.WriteLine("Imported RSA Key Pair	\n {0}", rsa.ToXmlString(true));
-        }
 
 
     }

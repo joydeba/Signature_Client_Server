@@ -11,7 +11,7 @@ namespace Signature_Client_Server
         RSACryptoServiceProvider globaLrsa;
         string globalHashAlgo;
 
-        private CspParameters GetCryptoServiceProvider()
+        public static CspParameters GetCryptoServiceProvider()
         {
             // Create the CspParameters object 
             CspParameters csp = new CspParameters();
@@ -34,6 +34,9 @@ namespace Signature_Client_Server
         public byte[] Sign(byte[] hashvalue)
         {
             //Computes the signature for the specified hash value by encrypting it with the private key
+            Sender sender_s = new Sender();
+            RSAParameters xmlboth_r = sender_s.get_both_key(); 
+            globaLrsa.ImportParameters(xmlboth_r);
             byte[] sign = globaLrsa.SignHash(hashvalue, CryptoConfig.MapNameToOID(globalHashAlgo)); //128 byte signature
 
             return sign;

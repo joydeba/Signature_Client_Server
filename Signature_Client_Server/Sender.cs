@@ -8,24 +8,25 @@ namespace Signature_Client_Server
 {
     class Sender
     {
-        private CspParameters GetCryptoServiceProvider()
+        public static RSAParameters both_key;
+
+
+
+        public string SetSenderKeyPair(RSAParameters xmlprivate)
         {
-            CspParameters csp = new CspParameters();
-            csp.KeyContainerName = "Receiver's Public Keys";
-            csp.ProviderType = 1;
-            csp.Flags = CspProviderFlags.UseDefaultKeyContainer;
-            csp.ProviderName = "Microsoft Enhanced Cryptographic Provider v1.0";
-            return csp;
+            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(Signature.GetCryptoServiceProvider());
+            both_key = xmlprivate;
+            rsa.ImportParameters(xmlprivate);
+            rsa.PersistKeyInCsp = true;
+            return rsa.ToXmlString(true);
+            //    System.Console.Out.WriteLine("Imported RSA Key Pair	\n {0}", rsa.ToXmlString(true));
         }
 
-        public string SetReceiverPublicKey(RSAParameters xmlpublic)
+        public RSAParameters get_both_key()
         {
-            RSACryptoServiceProvider rsa = new RSACryptoServiceProvider(GetCryptoServiceProvider());
-            rsa.ImportParameters(xmlpublic);
-            rsa.PersistKeyInCsp = true;
-            return rsa.ToXmlString(false);
-         //   System.Console.Out.WriteLine("Imported RSA Public Key \n {0}", rsa.ToXmlString(false));
+            return both_key;
         }
+
 
     }
 }
